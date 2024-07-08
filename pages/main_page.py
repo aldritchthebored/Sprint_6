@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class YaScooterMainPage(BasePage):
     @allure.step('Нажать на кнопку заказа')
     def click_order_button(self, order_button):
-        return self.find_element(order_button).click()
+        self.find_element(order_button).click()
 
     @allure.step('Нажать на вопросы FAQ')
     def click_faq_question(self, question):
@@ -21,18 +21,18 @@ class YaScooterMainPage(BasePage):
 
     @allure.step('Переключиться на вкладку браузера')
     def switch_window(self, window_number: int = 1):
-        return self.driver.switch_to.window(self.driver.window_handles[window_number])
+        self.driver.switch_to.window(self.driver.window_handles[window_number])
 
     def wait_url_until_not_about_blank(self, time=10):
-        return WebDriverWait(self.driver, time).until_not(EC.url_to_be('about:blank'))
+        WebDriverWait(self.driver, time).until_not(EC.url_to_be('about:blank'))
 
     @allure.step('Перейти на страницу яндекса')
     def click_yandex_logo(self):
-        return self.find_element(MainPageLocators.YANDEX_LOGO).click()
+        self.find_element(MainPageLocators.YANDEX_LOGO).click()
     
     @allure.step('Перейти на страницу самоката')
     def click_samokat_logo(self):
-        return self.find_element(MainPageLocators.SAMOKAT_LOGO).click()
+        self.find_element(MainPageLocators.SAMOKAT_LOGO).click()
 
     @allure.step('Принять куки')
     def click_accept_cookies(self):
